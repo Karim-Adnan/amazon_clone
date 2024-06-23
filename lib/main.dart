@@ -1,7 +1,8 @@
-import 'package:amazon_clone/features/auth/screens/auth_screen,.dart';
-import 'package:amazon_clone/global_variables.dart';
-import 'package:amazon_clone/router.dart';
 import 'package:flutter/material.dart';
+
+import 'package:amazon_clone/global_variables.dart';
+import 'features/auth/screens/auth_screen.dart';
+import 'router.dart';
 
 void main() {
   runApp(const MyApp());

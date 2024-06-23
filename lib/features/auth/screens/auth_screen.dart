@@ -1,6 +1,7 @@
-import 'package:amazon_clone/common/widgets/custom_textfield.dart';
-import 'package:amazon_clone/global_variables.dart';
 import 'package:flutter/material.dart';
+
+import 'package:amazon_clone/global_variables.dart';
+import '../../../common/widgets/common_textfield.dart';
 
 class AuthScreen extends StatefulWidget {
   static const String routeName = "/auth_screen";
@@ -55,7 +56,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               if (_auth == AuthType.signup)
                 Container(
-                  padding:const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   color: GlobalVariables.backgroundColor,
                   child: Form(
                     key: _signUpFormKey,
