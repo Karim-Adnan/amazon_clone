@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final String hintText;
+  final TextEditingController _controller;
+  final String _hintText;
+  final int _maxLines;
+  final TextInputType _textInputType;
 
   const CustomTextField({
     super.key,
-    required this.controller,
-    required this.hintText,
-  });
+    required TextEditingController controller,
+    required String hintText,
+    int maxLines = 1,
+    TextInputType textInputType = TextInputType.text,
+  })  : _controller = controller,
+        _hintText = hintText,
+        _maxLines = maxLines,
+        _textInputType = textInputType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+      controller: _controller,
+      keyboardType: _textInputType,
       decoration: InputDecoration(
         border: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.black38),
@@ -21,10 +29,14 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.black38),
         ),
-        hintText: hintText,
+        hintText: _hintText,
       ),
+      maxLines: _maxLines,
       validator: (val) {
-        return;
+        if (val == null || val.isEmpty) {
+          return 'Please enter $_hintText';
+        }
+        return null;
       },
     );
   }
