@@ -24,7 +24,7 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
-  final ProductDetailsServices _productDetailsServices =
+  final ProductDetailsServices productDetailsServices =
       ProductDetailsServices();
 
   void navigateToSearch(String query) {
@@ -53,6 +53,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     if (totalRating != 0) {
       avgRating = totalRating / widget.product.rating!.length;
     }
+  }
+
+  void addToCart() {
+    productDetailsServices.addToCart(
+      context: context,
+      product: widget.product,
+    );
   }
 
   @override
@@ -222,7 +229,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               padding: const EdgeInsets.all(10),
               child: CustomButton(
                 text: 'Add To Cart',
-                onTap: () {},
+                onTap: addToCart,
                 color: const Color.fromRGBO(254, 216, 19, 1),
               ),
             ),
@@ -254,7 +261,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 color: GlobalVariables.secondaryColor,
               ),
               onRatingUpdate: (rating) {
-                _productDetailsServices.rateProduct(
+                productDetailsServices.rateProduct(
                   context: context,
                   product: widget.product,
                   rating: rating,
