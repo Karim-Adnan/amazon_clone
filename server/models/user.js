@@ -39,7 +39,7 @@ const userSchema = mongoose.Schema({
   },
   cart: [
     {
-      productSchema: productSchema,
+      product: productSchema,
       quantity: {
         type: Number,
         required: true,
