@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-String baseUrl = '10.0.131.176:3000'; // OFFICE
+// String baseUrl = '10.0.132.34:3000'; // OFFICE
 // String baseUrl = '192.168.1.6:3000'; // HOME
-// String baseUrl = '172.20.10.9:3000'; // HOTSPOT
+String baseUrl = '172.20.10.9:3000'; // HOTSPOT
+// String baseUrl = '192.168.1.15:3000'; // DELHI
 
 class GlobalVariables {
   // COLORS
